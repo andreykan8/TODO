@@ -26,9 +26,9 @@ var_dump($_POST);
     <div>
         <ul>
             <?php
-            $file = json_decode(file_get_contents('data.json'));
-            foreach ($file as $item) {
-                echo '<input type="checkbox" name="item" autocomplete="off"><label for="item">' . $item . '</label><br>';
+            foreach ($file as $item => $val) {
+                $temp = $val ? 'on':'off';
+                echo '<input type="checkbox" name="item" checked=' . $val . '<label for="item">' . $item . '</label><br>';
             }
             ?>
         </ul>
