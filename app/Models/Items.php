@@ -27,4 +27,9 @@ class Items
         }
         return json_decode(file_get_contents('data.json'), true);
     }
+
+    public function saveItems(string $file): void
+    {
+        file_put_contents('data.json', $file);
+    }
 }
