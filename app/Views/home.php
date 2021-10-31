@@ -25,12 +25,14 @@ var_dump($_POST);
     </div>
     <div>
         <ul>
-            <?php
-            foreach ($file as $item => $val) {
-                $temp = $val ? 'on':'off';
-                echo '<input type="checkbox" name="item" checked=' . $val . '<label for="item">' . $item . '</label><br>';
-            }
-            ?>
+            <?php foreach($file as $item => $val) : ?>
+                <?php $checked = $val ? 'checked':''; ?>
+                <input type="checkbox" name="item" <?php $checked ;?><label for="item"><?= $item ; ?></label>
+                <form method="post" action="/delete">
+                    <input type="hidden" name="_method" value="DELETE"/>
+                    <button type="submit" name="deletedItem" value="<?= $item ; ?>">[X]</button>
+                </form>
+            <?php endforeach ;?>
         </ul>
     </div>
 </body>
