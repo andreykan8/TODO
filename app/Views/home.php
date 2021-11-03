@@ -23,7 +23,7 @@ declare(strict_types=1);
             <button class="add-button" type="submit" name="add">Add</button>
         </form>
     </div>
-
+    <p><?= $error; ?></p>
     <div class="list">
         <?php foreach($file as $item => $val) : ?>
             <form method="post" action="/delete">

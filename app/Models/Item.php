@@ -3,19 +3,19 @@
 declare(strict_types=1);
 
 namespace App\Models;
-
-class Items
+use Exception;
+class Item
 {
     public string $message;
 
-    public function addItems(): void
+    public function addItem(): void
     {
         if (file_exists('data.json')) {
             $input = file_get_contents('data.json');
             $tempArray = json_decode($input, true);
             $tempArray[$_POST['item']] = true;
-            if (isset($_POST['item'], $tempArray)){
-                $this->message = 'Task already exists';
+            if (isset($_POST['item'], $tempArray)) {
+                throw new Exception('Task already exists');
             }
         } else {
             $tempArray = [$_POST['item'] => true];
