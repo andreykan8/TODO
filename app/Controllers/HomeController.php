@@ -13,7 +13,7 @@ class HomeController
     {
         $tasksArray = (new Task())->getTasks();
 
-        return require_once __DIR__ . '/../Views/home.php';
+        return require_once __DIR__ . '/../Views/home.view.php';
     }
 
     public function add()
@@ -26,7 +26,7 @@ class HomeController
             $error = $e->getMessage();
             $tasksArray = (new Task())->getTasks();
 
-            return require_once __DIR__ . '/../Views/home.php';
+            return require_once __DIR__ . '/../Views/home.view.php';
         }
     }
 
