@@ -7,20 +7,22 @@
 
  class Home
  {
-     public function home()
+     public function home(): int
      {
-         $file = (new Items())->getItems();
+         $newFile = new Items();
+         $file = $newFile->getItems();
+         $error = '<p>' . $newFile->message . '</p>';
          return require_once __DIR__ . '/../Views/home.php';
      }
 
-     public function add()
+     public function add(): void
      {
          $item = new Items();
          $item->addItems();
          header("Location: /");
      }
 
-     public function delete()
+     public function delete(): void
      {
          $items = new Items();
          $file = $items->getItems();

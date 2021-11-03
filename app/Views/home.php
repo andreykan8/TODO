@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-var_dump($_POST);
 ?>
 
 <!doctype html>
@@ -13,27 +12,28 @@ var_dump($_POST);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="/app/Views/css/styles.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-    <div>
+    <div class="input">
         <h1>Todo</h1>
         <form action="/add" method="post">
             <input type="text" name="item" placeholder="Add new item">
             <br>
-            <button type="submit">Add</button>
+            <button class="add-button" type="submit" name="add">Add</button>
         </form>
     </div>
-    <div>
-        <ul>
-            <?php foreach($file as $item => $val) : ?>
-                <?php $checked = $val ? 'checked':''; ?>
-                <input type="checkbox" name="item" <?php $checked ;?><label for="item"><?= $item ; ?></label>
-                <form method="post" action="/delete">
-                    <input type="hidden" name="_method" value="DELETE"/>
-                    <button type="submit" name="deletedItem" value="<?= $item ; ?>">[X]</button>
-                </form>
-            <?php endforeach ;?>
-        </ul>
+
+    <div class="list">
+        <?php foreach($file as $item => $val) : ?>
+            <form method="post" action="/delete">
+                <p class="task"><?= $item ; ?></p>
+                <input type="hidden" name="_method" value="DELETE"/>
+                <br class="del-br">
+                <button class="delete-button" type="submit" name="deletedItem" value="<?= $item ; ?>">X</button>
+            </form>
+        <?php endforeach ;?>
     </div>
+    <?= $error; ?>
 </body>
 </html>
