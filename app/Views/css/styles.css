@@ -30,6 +30,7 @@ body{
 
 .delete-button:hover{
     background-color: #cb0b10;
+    cursor: pointer;
 }
 
 .add-button{
@@ -44,6 +45,7 @@ body{
 
 .add-button:hover{
     background-color: #33831d;
+    cursor: pointer;
 }
 
 .task{
@@ -52,6 +54,10 @@ body{
     margin: 25px 0 20px;
     width: 70%;
     word-wrap:break-word;
+}
+
+.error{
+    color: red;
 }
 
 @media only screen and (min-width: 600px) {

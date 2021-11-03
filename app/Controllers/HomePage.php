@@ -3,39 +3,38 @@
 declare(strict_types=1);
 
 namespace App\Controllers;
-use App\Models\Item;
+use App\Models\Task;
 use Exception;
 
 class HomePage
 {
      public function home()
      {
-         $newFile = new Item();
-         $file = $newFile->getItems();
+         $jsonArray = (new Task())->getTasks();
          return require_once __DIR__ . '/../Views/home.php';
      }
 
      public function add()
      {
          try {
-             $item = new Item();
-             $item->addItem();
+             $task = new Task();
+             $task->addTask();
              header("Location: /");
          }catch(Exception $e) {
              $error = $e->getMessage();
-             $file = file_get_contents('data.json');
+             $jsonArray = (new Task())->getTasks();
              return require_once __DIR__ . '/../Views/home.php';
          }
      }
 
      public function delete(): void
      {
-         $items = new Item();
-         $file = $items->getItems();
+         $task = new Task();
+         $file = $task->getTasks();
 
          unset($file[$_POST['deletedItem']]);
 
-         $items->saveItems(json_encode($file));
+         $task->saveTasks(json_encode($file));
          header("Location: /");
      }
 

@@ -23,9 +23,9 @@ declare(strict_types=1);
             <button class="add-button" type="submit" name="add">Add</button>
         </form>
     </div>
-    <p><?= $error; ?></p>
+    <?= isset($error) ? '<p class="error">' . $error . '</p>' : null?>
     <div class="list">
-        <?php foreach($file as $item => $val) : ?>
+        <?php foreach($jsonArray as $item => $val) : ?>
             <form method="post" action="/delete">
                 <p class="task"><?= $item ; ?></p>
                 <input type="hidden" name="_method" value="DELETE"/>

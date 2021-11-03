@@ -4,19 +4,17 @@ declare(strict_types=1);
 
 namespace App\Models;
 use Exception;
-class Item
+class Task
 {
-    public string $message;
-
-    public function addItem(): void
+    public function addTask(): void
     {
         if (file_exists('data.json')) {
             $input = file_get_contents('data.json');
             $tempArray = json_decode($input, true);
-            $tempArray[$_POST['item']] = true;
-            if (isset($_POST['item'], $tempArray)) {
+            if (array_key_exists($_POST['item'], $tempArray)) {
                 throw new Exception('Task already exists');
             }
+            $tempArray[$_POST['item']] = true;
         } else {
             $tempArray = [$_POST['item'] => true];
         }
@@ -25,7 +23,7 @@ class Item
 
     }
 
-    public function getItems(): array
+    public function getTasks(): array
     {
         if (!file_exists('data.json')) {
             return [];
@@ -33,7 +31,7 @@ class Item
         return json_decode(file_get_contents('data.json'), true);
     }
 
-    public function saveItems(string $file): void
+    public function saveTasks(string $file): void
     {
         file_put_contents('data.json', $file);
     }
