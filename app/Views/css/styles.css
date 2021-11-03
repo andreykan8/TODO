@@ -1,4 +1,4 @@
-body{
+body {
     text-align: -webkit-center;
 }
 
@@ -6,13 +6,13 @@ body{
     box-sizing: border-box;
 }
 
-.input{
+.input {
     width: 100%;
     text-align: center;
     padding: 15px;
 }
 
-.list{
+.list {
     width: 100%;
     text-align: center;
     padding: 15px;
@@ -28,12 +28,12 @@ body{
     font-size: 16px;
 }
 
-.delete-button:hover{
+.delete-button:hover {
     background-color: #cb0b10;
     cursor: pointer;
 }
 
-.add-button{
+.add-button {
     background-color: #81b672;
     border: none;
     color: white;
@@ -43,20 +43,20 @@ body{
     font-size: 16px;
 }
 
-.add-button:hover{
+.add-button:hover {
     background-color: #33831d;
     cursor: pointer;
 }
 
-.task{
+.task {
     display: inline-block;
     text-align: center;
     margin: 25px 0 20px;
     width: 70%;
-    word-wrap:break-word;
+    word-wrap: break-word;
 }
 
-.error{
+.error {
     color: red;
 }
 
@@ -67,25 +67,27 @@ body{
         right: 0;
     }
 
-    .del-br{
+    .del-br {
         display: none;
     }
 
-    .add-button{
+    .add-button {
         padding: 12px 16px;
         top: 7%;
     }
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
 
-    .input{
+    .input {
         max-width: 752px;
     }
-    .list{
+
+    .list {
         max-width: 752px;
     }
-    .delete-button{
+
+    .delete-button {
         position: relative;
         right: -109px;
     }

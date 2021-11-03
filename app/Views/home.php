@@ -15,24 +15,24 @@ declare(strict_types=1);
     <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-    <div class="input">
-        <h1>Todo</h1>
-        <form action="/add" method="post">
-            <input type="text" name="item" placeholder="Add new item">
-            <br>
-            <button class="add-button" type="submit" name="add">Add</button>
+<div class="input">
+    <h1>Todo</h1>
+    <form action="/add" method="post">
+        <input type="text" name="item" placeholder="Add new item">
+        <br>
+        <button class="add-button" type="submit" name="add">Add</button>
+    </form>
+</div>
+<?= isset($error) ? '<p class="error">' . $error . '</p>' : null ?>
+<div class="list">
+    <?php foreach ($tasksArray as $item => $val) : ?>
+        <form method="post" action="/delete">
+            <p class="task"><?= $item; ?></p>
+            <input type="hidden" name="_method" value="DELETE"/>
+            <br class="del-br">
+            <button class="delete-button" type="submit" name="deletedItem" value="<?= $item; ?>">X</button>
         </form>
-    </div>
-    <?= isset($error) ? '<p class="error">' . $error . '</p>' : null?>
-    <div class="list">
-        <?php foreach($jsonArray as $item => $val) : ?>
-            <form method="post" action="/delete">
-                <p class="task"><?= $item ; ?></p>
-                <input type="hidden" name="_method" value="DELETE"/>
-                <br class="del-br">
-                <button class="delete-button" type="submit" name="deletedItem" value="<?= $item ; ?>">X</button>
-            </form>
-        <?php endforeach ;?>
-    </div>
+    <?php endforeach; ?>
+</div>
 </body>
 </html>
