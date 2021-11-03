@@ -34,6 +34,5 @@ declare(strict_types=1);
             </form>
         <?php endforeach ;?>
     </div>
-    <?= $error; ?>
 </body>
 </html>
