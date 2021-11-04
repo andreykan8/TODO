@@ -6,9 +6,9 @@ require 'vendor/autoload.php';
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $namespace = 'App\Controllers\\';
-    $r->addRoute('GET', '/', $namespace . 'Home@home');
-    $r->addRoute('POST', '/add', $namespace . 'Home@add');
-    $r->addRoute('POST', '/delete', $namespace . 'Home@delete');
+    $r->addRoute('GET', '/', $namespace . 'HomeController@home');
+    $r->addRoute('POST', '/add', $namespace . 'HomeController@add');
+    $r->addRoute('POST', '/delete', $namespace . 'HomeController@delete');
 });
 
 // Fetch method and URI from somewhere
